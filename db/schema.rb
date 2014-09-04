@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20140904141331) do
 
   create_table "documents", force: true do |t|
     t.integer  "user_id"
-    t.string   "title"
+    t.string   "title",          null: false
     t.text     "context"
     t.string   "file_extension"
     t.datetime "created_at"
