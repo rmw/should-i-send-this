@@ -31,9 +31,9 @@ ActiveRecord::Schema.define(version: 20140904141331) do
   end
 
   create_table "versions", force: true do |t|
-    t.integer  "document_id"
+    t.integer  "document_id",    null: false
     t.integer  "version_number"
-    t.text     "content"
+    t.text     "content",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
