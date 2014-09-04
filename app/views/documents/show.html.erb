@@ -1,0 +1,19 @@
+<%= @document.title %>
+<br>
+<%= @document.context %>
+
+<h1>Versions</h1>
+<%= @current_version.content %>
+
+<h2>Response Text</h2>
+
+<ul>
+  <% @alchemist['keywords'].each do |kw| %>
+    <li> <%= kw['text'] %>:</li>
+    <li><%= kw['relevance'] %></li>
+    <li><%= kw['sentiment'] %></li>
+    <li></li>
+  <% end %>
+</ul>
+
+<hr>
