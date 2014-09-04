@@ -1,11 +1,14 @@
 class DocumentsController < ApplicationController
   def index
+    @document = Document.new()
   end
 
   def create
   end
 
   def new
+    @document = Document.new()
+    @version = Version.new()
   end
 
   def edit
