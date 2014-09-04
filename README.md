@@ -32,18 +32,18 @@ WATER LINE
 
 ### STRETCHES 
 
-1) Users 
-2) our site has an email address, you send it text it emails u back response
-3) Document versioning - and evolution 
-4) Responsive Design - (v1 bootstrap - v2 custom layouts + css files for media query results
-5) truly thorough testing
-6) strong front end JS framework for editing text (snippets gem? research how!)
-7) As you type - constantly update feedback 
-8) anonymous feedback from community members
-9) in editor feedback - distinguish 2 types of comments: specific edits, general advice in response (color coded)
-10) omniauth use gmail oauth function and maybe apis for text related stuff
-11) same with facebook 
-12) tie to status update on facebook ... need to
+1. Users 
+2. our site has an email address, you send it text it emails u back response
+3. Document versioning - and evolution 
+4. Responsive Design - (v1 bootstrap - v2 custom layouts + css files for media query results
+5. truly thorough testing
+6. strong front end JS framework for editing text (snippets gem? research how!)
+7. As you type - constantly update feedback 
+8. anonymous feedback from community members
+9. in editor feedback - distinguish 2 types of comments: specific edits, general advice in response (color coded)
+10. omniauth use gmail oauth function and maybe apis for text related stuff
+11. same with facebook 
+12. tie to status update on facebook ... need to
 
 ### GROUP CULTURE
 - we don't pull all nighters
