@@ -19,4 +19,9 @@ class DocumentsController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def document_params
+  end
 end

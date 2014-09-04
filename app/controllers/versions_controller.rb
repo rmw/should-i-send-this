@@ -19,4 +19,9 @@ class VersionsController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def version_params
+  end
 end
