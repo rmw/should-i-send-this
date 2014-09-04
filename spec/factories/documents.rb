@@ -2,5 +2,7 @@
 
 FactoryGirl.define do
   factory :document do
+    title "Untitled"
+    context "Test"
   end
 end

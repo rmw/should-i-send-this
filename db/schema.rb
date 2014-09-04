@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20140904141331) do
 
   create_table "documents", force: true do |t|
     t.integer  "user_id"
-    t.string   "title"
+    t.string   "title",          null: false
     t.text     "context"
     t.string   "file_extension"
     t.datetime "created_at"
@@ -31,9 +31,9 @@ ActiveRecord::Schema.define(version: 20140904141331) do
   end
 
   create_table "versions", force: true do |t|
-    t.integer  "document_id"
+    t.integer  "document_id",    null: false
     t.integer  "version_number"
-    t.text     "content"
+    t.text     "content",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

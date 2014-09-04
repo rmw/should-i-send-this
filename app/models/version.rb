@@ -20,5 +20,4 @@ class Version < ActiveRecord::Base
     end
   end
 
-
 end
