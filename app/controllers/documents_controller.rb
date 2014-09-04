@@ -4,10 +4,10 @@ class DocumentsController < ApplicationController
   end
 
   def create
-    p params
+    document = Document.create(document_params)
+    document.versions.create(version_params)
 
-    # parse params // separate Doc creation and Version creation
-
+    redirect_to document_path(document)
   end
 
   def new
@@ -35,7 +35,18 @@ class DocumentsController < ApplicationController
 
   private
 
+  ## TODO:  The below methods are pretty hacky, but achieve similar ends to strong params
+  # is there a better WORKING way to get at nested resources in form submission?
+
   def document_params
+    title = params[:document][:title]
+    context = params[:document][:context]
+    {title: title, context: context}
+  end
+
+  def version_params
+    content = params[:document][:versions][:content]
+    {content: content}
   end
 
   def fake_response
