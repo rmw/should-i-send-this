@@ -17,6 +17,10 @@ ActiveRecord::Schema.define(version: 20140904141331) do
   enable_extension "plpgsql"
 
   create_table "documents", force: true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "context"
+    t.string   "file_extension"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -27,6 +31,9 @@ ActiveRecord::Schema.define(version: 20140904141331) do
   end
 
   create_table "versions", force: true do |t|
+    t.integer  "document_id"
+    t.integer  "version_number"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
