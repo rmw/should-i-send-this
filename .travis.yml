@@ -1,14 +1,11 @@
 language: ruby
 rvm:
-  - "1.8.7"
-  - "1.9.2"
-  - "1.9.3"
-  - jruby-18mode # JRuby in 1.8 mode
-  - jruby-19mode # JRuby in 1.9 mode
-  - rbx
-# uncomment this line if your project needs to run something other than `rake`:
-
+  - 2.0.0
+env:
+  - DB=postgresql
+# script:
+#   - RAILS_ENV=test bundle exec rake --trace db:migrate test
+addons:
+  postgresql: "9.3"
 before_script:
-  - psql -c 'create database shoud-i-send-this_test;' -U postgres
-
-script: bundle exec rspec spec
+  - psql -c 'create database should_i_send_this_test;' -U postgres
