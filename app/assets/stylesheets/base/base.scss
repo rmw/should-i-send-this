@@ -29,14 +29,14 @@ body {
 	}
 	.warning-bg {
 		background-color: $warning-bg;
-		color: $warning-txt;	
+		color: $warning-txt;
 	}
 	.error{
 		color: $warning-txt;
 	}
 	.error-bg{
 		background-color: $warning-bg;
-		color: $warning-txt;	
+		color: $warning-txt;
 	}
 	.font-large {
 		font-size: $large-font;
@@ -51,6 +51,10 @@ body {
 	.font-small {
 		font-size: $small-font;
 	}
+  .hidden {
+    display: none;
+    // visibility: hidden;
+  }
 
 	button, a.button {
 
@@ -65,10 +69,10 @@ body {
     margin-right: .05em;
     float: right;
     font-size: 0.8em;
-    
+
     &:hover {
       background-color: $info-bg - 50;
-      color: $info-txt - 50;   
+      color: $info-txt - 50;
     }
 
 	}

@@ -35,11 +35,6 @@ end
 # initialize the object with text
 # alchemy_object = AlchemyData.new("hello, please analyze this")
 
-# call the alchemy api
-# alchemy_object.get_keywords
-# alchemy_object.get_concepts
-# alchemy_object.get_sentiment
-
 # how to output data
 # alchemy_object.keywords
 #    => returns array of keywords in descending order of relevance
