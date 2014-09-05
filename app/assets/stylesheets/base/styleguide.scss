@@ -1,0 +1,20 @@
+header {
+  width: 100%;
+  padding: 0 20px;
+  border: 1px black solid;
+  font-size: 30px;
+  nav {
+    display: inline-block;
+    ul {
+      display: inline-block;
+      li {
+        display: inline-block;
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+body {
+  font-family: $primary-font;
+}
