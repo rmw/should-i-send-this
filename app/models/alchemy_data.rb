@@ -7,6 +7,9 @@ class AlchemyData
     @keywords = []
     @concepts = []
     @sentiment = 0
+    get_keywords
+    get_concepts
+    get_sentiment
   end
 
   def get_keywords
