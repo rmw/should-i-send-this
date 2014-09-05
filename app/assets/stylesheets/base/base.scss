@@ -52,4 +52,27 @@ body {
 		font-size: $small-font;
 	}
 
+	button, a.button {
+
+    // background: #EB3618;
+    // color: white;
+    font-family: $primary-font;
+
+    background-color: $info-bg;
+    color: $info-txt;
+    border-radius: 5px;
+    padding: .2em 1em;
+    margin-right: .05em;
+    float: right;
+    font-size: 0.8em;
+    
+    &:hover {
+      background-color: $info-bg - 50;
+      color: $info-txt - 50;   
+    }
+
+	}
+
+
+
 }
