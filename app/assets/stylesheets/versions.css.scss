@@ -1,3 +1,10 @@
-// Place all the styles related to the Versions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.highlight {
+  background-color: $info-bg ;
+  color: $info-txt;
+  padding: 0.125em;
+  border-radius: 10px;
+}
+
+// $highlight
+// $info-txt
+// $info-bg

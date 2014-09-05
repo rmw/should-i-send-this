@@ -7,6 +7,9 @@ class AlchemyData
     @keywords = []
     @concepts = []
     @sentiment = 0
+    get_keywords
+    get_concepts
+    get_sentiment
   end
 
   def get_keywords
@@ -31,11 +34,6 @@ end
 
 # initialize the object with text
 # alchemy_object = AlchemyData.new("hello, please analyze this")
-
-# call the alchemy api
-# alchemy_object.get_keywords
-# alchemy_object.get_concepts
-# alchemy_object.get_sentiment
 
 # how to output data
 # alchemy_object.keywords

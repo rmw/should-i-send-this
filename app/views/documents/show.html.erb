@@ -3,17 +3,15 @@
 <%= @document.context %>
 
 <h1>Versions</h1>
-<%= @current_version.content %>
+  <p id="content"><%= @current_version.content %></p>
 
 <h2>Response Text</h2>
 
-<ul>
-  <% @alchemist['keywords'].each do |kw| %>
-    <li> <%= kw['text'] %>:</li>
-    <li><%= kw['relevance'] %></li>
-    <li><%= kw['sentiment'] %></li>
-    <li></li>
-  <% end %>
-</ul>
 
-<hr>
+<div class="hidden">
+  <div id="rawkeywords"><%= @keywords %></div>
+  <div id="rawconcepts"><%= @concepts %></div>
+  <div id="rawsentiment"><%= @sentiment %></div>
+</div>
+
+
