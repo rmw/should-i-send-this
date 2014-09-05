@@ -47,6 +47,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'simplecov', '~> 0.9.0'
+  gem 'faker'
 end
 
 gem 'rails_12factor', group: :production
