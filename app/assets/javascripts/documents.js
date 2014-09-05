@@ -7,7 +7,7 @@ var KeywordFinder = function(content, keywordsArray) {
 KeywordFinder.prototype = {
   wrapKWinSpan : function( keyword ) {
     var reg = new RegExp('\\b(' + keyword + '(?:e(?=s))?s?)\\b', "gi");
-    var result = this.content.replace(reg, "<span class='" + keyword + "'>$1</span>")
+    var result = this.content.replace(reg, "<span class='highlight'>$1</span>")
     this.content = result;
   },
   wrapKeyWords : function() {
@@ -16,16 +16,14 @@ KeywordFinder.prototype = {
     for (var i = 0; i < kws.length; i++){
       _this.wrapKWinSpan( kws[i] )
     }
-
-    console.log(_this.content);
   },
   prepSpanClasses : function() {
 
+  },
+  renderHighlighted : function() {
+    var _this = this;
+    $('#content').html(_this.content);
   }
-
-  // returnHtml : function() {
-  //   // return the content, in a <p> tag, with keywords wrapped in <span> with id="kw[index]"
-  // }
 }
 
 // var fakeContent = 'church churches store stores beer beers  I went to the store.  I bought milk, and cereal, and thought about the state of the world, also there was a cat. I like stores. I like cats. Dont like Milk.'
@@ -37,27 +35,21 @@ KeywordFinder.prototype = {
 // var spanClasses = { 'I': "top", 'store': 'middle', 'cat': 'low'}
 
 
+$( document ).ready(function() {
 
+  // ON READY - GRAB KEYWORDS CONCEPTS SENTIMENT FROM VIEW
+  var kw = JSON.parse( $("#rawkeywords").text() );
+  var concepts = JSON.parse( $("#rawconcepts").text() );
+  var sentiment = JSON.parse( $("#rawsentiment").text() );
+  var content = $('#content').text();
 
-var kwf = new KeywordFinder(fakeContent, fakeKWarray)
+  kwf = new KeywordFinder(content, kw);
 
-////  TODO -
-/// from server, when we recieve alchemy object, include plurals as returned by rails
+  kwf.wrapKeyWords();
 
+  kwf.renderHighlighted();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+});
 
 
 
