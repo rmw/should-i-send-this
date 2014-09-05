@@ -1,0 +1,78 @@
+body {
+	font-family: $primary-font;
+	color: $text-dark-grey;
+	font-size: $base-font-size;
+	letter-spacing: $base-letter-space;
+	line-height: $base-line-height;
+
+	h1{
+		font-family: $logo-font;
+		font-size: $xlarge-font;
+	}
+
+	.secondary-txt {
+		color: $text-lighter-grey;
+	}
+	.secondary-bg {
+		color: $text-lighter-grey;
+		background-color: $highlight + 55;
+	}
+	.info {
+		color: $info-txt;
+	}
+	.info-bg{
+		background-color: $info-bg;
+		color: $info-txt;
+	}
+	.warning-txt{
+		color: $warning-txt;
+	}
+	.warning-bg {
+		background-color: $warning-bg;
+		color: $warning-txt;	
+	}
+	.error{
+		color: $warning-txt;
+	}
+	.error-bg{
+		background-color: $warning-bg;
+		color: $warning-txt;	
+	}
+	.font-large {
+		font-size: $large-font;
+	}
+	.font-medium {
+		font-size: $medium-font;
+	}
+	.font-x-large {
+		font-size: $xlarge-font;
+		letter-spacing: $wide-letter-space;
+	}
+	.font-small {
+		font-size: $small-font;
+	}
+
+	button, a.button {
+
+    // background: #EB3618;
+    // color: white;
+    font-family: $primary-font;
+
+    background-color: $info-bg;
+    color: $info-txt;
+    border-radius: 5px;
+    padding: .2em 1em;
+    margin-right: .05em;
+    float: right;
+    font-size: 0.8em;
+    
+    &:hover {
+      background-color: $info-bg - 50;
+      color: $info-txt - 50;   
+    }
+
+	}
+
+
+
+}

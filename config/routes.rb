@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root :to => "documents#index"
 
   get 'styleguide' => 'public#index'
+  get 'styleguide/show' => 'public#show'
 
   resources :documents do
     resources :versions, shallow: true

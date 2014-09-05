@@ -17,5 +17,14 @@
 @import "bourbon";
 @import "neat/settings";
 @import "neat";
+
+@import "base/colorvars";
 @import "base/variables";
+
+@import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light);
+@import "base/typography";
+
+@import "base/base";
+
+@import "partials/header";
 @import "base/styleguide";
