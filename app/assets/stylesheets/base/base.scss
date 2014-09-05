@@ -1,0 +1,35 @@
+body {
+	font-family: $primary-font;
+	color: $text-dark-grey;
+
+	.secondary-txt {
+		color: $text-lighter-grey;
+	}
+	.secondary-bg {
+		color: $text-lighter-grey;
+		background-color: $highlight + 55;
+	}
+	.info {
+		color: $info-txt;
+	}
+	.info-bg{
+		background-color: $info-bg;
+		color: $info-txt;
+	}
+	.warning-txt{
+		color: $warning-txt;
+	}
+	.warning-bg {
+		background-color: $warning-bg;
+		color: $warning-txt;	
+	}
+	.error{
+		color: $warning-txt;
+	}
+	.error-bg{
+		background-color: $warning-bg;
+		color: $warning-txt;	
+
+	}
+
+}
