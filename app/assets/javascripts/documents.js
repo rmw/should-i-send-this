@@ -4,13 +4,19 @@ var KeywordFinder = function(content, keywordsArray) {
 }
 
 KeywordFinder.prototype = {
-  isKWinContent : function( keyword ) {
+  wrapKWinSpan : function( keyword ) {
     var reg = new RegExp('\\b(' + keyword + '(?:e(?=s))?s?)\\b', "gi");
-    var result = this.content.replace(reg, "<span class='" + spanClasses[keyword] + "'>$1</span>")
-    // console.log
-    console.log(result);
-    // e.g.: 'bar foo'.replace( /(...) (...)/, '$2 $1' ).
-    // kwf.content.replace(/\b(stor(?:e(?=s))?s?)\b/gi, '<span>$1</span>')
+    var result = this.content.replace(reg, "<span class='" + keyword + "'>$1</span>")
+    this.content = result;
+  },
+  wrapKeyWords : function() {
+    var _this = this;
+    var kws = _this.keywordsArray;
+    for (var i = 0; i < kws.length; i++){
+      _this.wrapKWinSpan( kws[i] )
+    }
+
+    console.log(_this.content);
   }
 
   // returnHtml : function() {
@@ -21,9 +27,10 @@ KeywordFinder.prototype = {
 var fakeContent = 'church churches store stores beer beers  I went to the store.  I bought milk, and cereal, and thought about the state of the world, also there was a cat. I like stores. I like cats. Dont like Milk.'
 
 
-var fakeKWarray = [ 'I', 'store', 'cat', 'milk' ]
+var fakeKWarray = [ 'I', 'store', 'cat', 'milk', 'state of']
 
-var spanClasses = { 'I': "top", 'store': 'middle', 'cat': 'low', 'milk': 'zero'}
+// TODO - specfic clases for KW priority
+// var spanClasses = { 'I': "top", 'store': 'middle', 'cat': 'low'}
 
 
 
