@@ -24,7 +24,7 @@ class DocumentsController < ApplicationController
     @current_version = @document.versions.order(version_number: :desc).first
     @alchemist = fake_response
     #AlchemyAPI.new.keywords('text', @version.content, { 'sentiment'=>1 })
-
+    p @alchemist
   end
 
   def update
