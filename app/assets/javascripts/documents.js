@@ -28,10 +28,10 @@ KeywordFinder.prototype = {
   // }
 }
 
-var fakeContent = 'church churches store stores beer beers  I went to the store.  I bought milk, and cereal, and thought about the state of the world, also there was a cat. I like stores. I like cats. Dont like Milk.'
+// var fakeContent = 'church churches store stores beer beers  I went to the store.  I bought milk, and cereal, and thought about the state of the world, also there was a cat. I like stores. I like cats. Dont like Milk.'
 
 
-var fakeKWarray = [ 'I', 'store', 'cat', 'milk', 'state of']
+// var fakeKWarray = [ 'I', 'store', 'cat', 'milk', 'state of']
 
 // TODO - specfic clases for KW priority
 // var spanClasses = { 'I': "top", 'store': 'middle', 'cat': 'low'}
