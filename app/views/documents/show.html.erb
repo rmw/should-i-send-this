@@ -1,11 +1,33 @@
 <%= @document.title %>
 <br>
-<%= @document.context %>
+
 
 <h1>Versions</h1>
   <p id="content"><%= @current_version.content %></p>
 
-<h2>Response Text</h2>
+
+<hr>
+<table class="compare-cons">
+  <tr>
+    <th>You Think You Wrote:</th>
+    <th>And</th>
+    <th>Alchemy Thinks You're Writing About:</th>
+  </tr>
+  <tr>
+    <td><%= @document.context %></td>
+    <td>  </td>
+    <td><%= @concepts.first %></td>
+  </tr>
+
+</table>
+
+
+
+
+
+
+
+<!-- <h2>Response Text</h2> -->
 
 
 <div class="hidden">
