@@ -1,6 +1,7 @@
 var KeywordFinder = function(content, keywordsArray) {
   this.content = content;
   this.keywordsArray = keywordsArray;
+  this.spanClasses;
 }
 
 KeywordFinder.prototype = {
@@ -17,6 +18,9 @@ KeywordFinder.prototype = {
     }
 
     console.log(_this.content);
+  },
+  prepSpanClasses : function() {
+
   }
 
   // returnHtml : function() {
