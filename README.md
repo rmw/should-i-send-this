@@ -1,6 +1,9 @@
 shoud-i-send-this
 =================
 
+![Travis-CI](https://travis-ci.org/woolly-bear-caterpillars-2014/should-i-send-this.svg?branch=master)
+
+
 we've all sent regrettable emails. get feedback before you push the button!
 
 Options for inputing text to analyze:
