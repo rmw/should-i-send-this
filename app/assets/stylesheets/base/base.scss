@@ -3,6 +3,12 @@ body {
 	color: $text-dark-grey;
 	font-size: $base-font-size;
 	letter-spacing: $base-letter-space;
+	line-height: $base-line-height;
+
+	h1{
+		font-family: $logo-font;
+		font-size: $xlarge-font;
+	}
 
 	.secondary-txt {
 		color: $text-lighter-grey;
