@@ -5,7 +5,7 @@ class CreateDocuments < ActiveRecord::Migration
       t.string :title, null: false
       t.text :context
       t.string :file_extension
-      t.boolean :public, default: true
+      t.boolean :privacy, default: false
 
       t.timestamps
     end
