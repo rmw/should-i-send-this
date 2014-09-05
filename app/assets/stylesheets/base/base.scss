@@ -1,6 +1,8 @@
 body {
 	font-family: $primary-font;
 	color: $text-dark-grey;
+	font-size: $base-font-size;
+	letter-spacing: $base-letter-space;
 
 	.secondary-txt {
 		color: $text-lighter-grey;
@@ -29,7 +31,19 @@ body {
 	.error-bg{
 		background-color: $warning-bg;
 		color: $warning-txt;	
-
+	}
+	.font-large {
+		font-size: $large-font;
+	}
+	.font-medium {
+		font-size: $medium-font;
+	}
+	.font-x-large {
+		font-size: $xlarge-font;
+		letter-spacing: $wide-letter-space;
+	}
+	.font-small {
+		font-size: $small-font;
 	}
 
 }
