@@ -8,10 +8,14 @@
 
 
 15.times do
-  User.create(email: Faker::Internet.email, password: Faker::Internet.password(8))
+  User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password(8))
 end
 
-User.create(email: "test@test.com", password: "password")
+User.create(name: "Alan Cohen", email: "test@test.com", password: "password")
+User.create(name: "Avi Fox-Rosen", email: "avi@test.com", password: "password")
+User.create(name: "Justin Lee", email: "justin@test.com", password: "password")
+User.create(name: "Yariv Kirschner", email: "yariv@test.com", password: "password")
+
 
 tf = [true, false]
 
