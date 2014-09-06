@@ -16,22 +16,34 @@ class TwilioController < ApplicationController
     render_twiml response
   end
 
-  def receive
-    @params = params
-  end
 
-  def send
+  def sms
+    message_content = params[:Body]
+    message_number = params[:From]
+
+    # alchemist = AlchemyData.new(message_content)
+    # sentiment = alchemist.sentiment
+    sentiment = (0.575699*100).floor
+
     # put your own credentials here 
     account_sid = ENV["TWILIO_ACCOUNT_SID"]
     auth_token = ENV["TWILIO_AUTH_TOKEN"]
  
     # set up a client to talk to the Twilio REST API 
-    @client = Twilio::REST::Client.new(account_sid, auth_token)
+    client = Twilio::REST::Client.new(account_sid, auth_token)
  
-    @client.account.messages.create({
+    client.account.messages.create({
       :from => '+16172084459', 
-      :to => '6177214362', 
-      :body => 'Your message is 90% positive!',  
+      :to => message_number, 
+      :body => "Your sentiment is #{sentiment}% positive!",  
     })
   end
 end
+
+
+
+
+
+
+
+
