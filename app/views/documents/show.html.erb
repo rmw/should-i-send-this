@@ -1,10 +1,11 @@
-<%= @document.title %>
+<h1>Version #<%= @current_version.version_number %></h1>
 <br>
 
+<%= @document.title %><br>
+<br>
 
-<h1>Version #<%= @current_version.version_number %></h1>
-  <p id="content"><%= @current_version.content %></p>
-
+<p id="content"><%= @current_version.content %></p>
+<br>
 
 <hr>
 <table class="compare-cons">
@@ -22,7 +23,9 @@
 </table>
 <br>
 
-<h2>Add a comment:</h2>
+<h2>Add a comments:</h2>
+<br>
+
 <%= form_for(@comment, url: document_version_comments_path(@document, @version), method: :post) do |f| %>
   <p>
     <%= f.label :body %><br>
@@ -31,24 +34,19 @@
   <p>
     <%= f.submit %>
   </p>
-<% end %>
-
+<% end %><br>
+<br>
 
 <% @comments.each do |comment| %>
   <p>
-    by <%= comment.user.name %><br>
+    <small>by <%= comment.user.name %><br></small>
     <%= comment.body %>
   </p>
   <br>
 <% end %>
-
-
-
 
 <div class="hidden">
   <div id="rawkeywords"><%= @keywords %></div>
   <div id="rawconcepts"><%= @concepts %></div>
   <div id="rawsentiment"><%= @sentiment %></div>
 </div>
-
-
