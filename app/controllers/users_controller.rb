@@ -1,9 +1,14 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+
 
   def show
-    @user = current_user
-    @documents = @user.documents
+    @user = User.find(params[:id])
+
+    if @user == current_user
+      @documents = @user.documents
+    else
+      @documents = @user.documents.where(privacy: false)
+    end
   end
 
 end
