@@ -2,13 +2,16 @@
 
   <%= f.label :title %><br>
   <%= f.text_field :title %><br>
+  <br>
   <%= f.label :context %><br>
-  <%= f.text_field :context %><br>
+  <%= f.text_area :context %><br>
+  <br>
 
   <%= f.fields_for :versions do |v| %>
     <%= v.label :content %><br>
     <%= v.text_area :content %><br>
   <% end %>
+  <br>
 
   <%= f.submit %>
 <% end %>

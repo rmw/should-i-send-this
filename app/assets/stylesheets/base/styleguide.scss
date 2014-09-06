@@ -14,7 +14,7 @@ body {
 
 .main-content {
   background-color: $main-bg;
-  margin-top: 5em;
+  margin-top: 2em;
   @include span-columns(8);
   @include shift(2);
   border: 1px solid #bbb;
@@ -50,19 +50,27 @@ body {
   //   margin-right: .05em;
   //   float: right;
   //   font-size: 0.8em;
-    
+
   //   &:hover {
   //     background-color: $info-bg - 50;
-  //     color: $info-txt - 50;   
+  //     color: $info-txt - 50;
   //   }
   // }
 }
 
-.subtitle {
-  @include span-columns(8);
-  @include shift(2);
-  font-size: 2.5em;
-  margin-top: 2em;
-  text-align: center;
-  color: #3a3a3a;
+input[type="text"] {
+  font-size: 0.8em;
+  border: 1px solid #9e9e9e;
+  border-radius: 0.25em;
+  width: 100%;
+  height: 2em;
+}
+
+textarea {
+  font-size: 0.8em;
+  border:1px solid #9e9e9e;
+  border-radius: 0.25em;
+  padding: 0.64em;
+  width: 100%;
+  height: 25em;
 }
