@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
-  root :to => "documents#index"
+  root :to => "public#index"
 
-  get 'styleguide' => 'public#index'
-  get 'styleguide/show' => 'public#show'
+  get '/styleguide' => 'public#show'
 
   resources :documents do
     resources :versions, shallow: true

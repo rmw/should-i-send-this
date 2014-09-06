@@ -1,6 +1,6 @@
 class DocumentsController < ApplicationController
   def index
-    @document = Document.new()
+    @documents = Document.all.order(created_at: :desc)
   end
 
   def create
@@ -22,10 +22,10 @@ class DocumentsController < ApplicationController
     # make API call
     @document = Document.find(params[:id])
     @current_version = @document.versions.order(version_number: :desc).first
-    # @alchemist = AlchemyData.new(@current_version.content)
+    @alchemist = AlchemyData.new(@current_version.content)
 
     # UNCOMMENT BELOW FOR NON-API CALL DEVELOPER MODE
-    @alchemist = FakeAlchemist.new
+    # @alchemist = FakeAlchemist.new
 
     @keywords = @alchemist.keywords
     @concepts = @alchemist.concepts
