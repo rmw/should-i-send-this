@@ -18,6 +18,9 @@ class TwilioController < ApplicationController
 
 
   def sms
+    content = params[:body]
+    from_number = params[:from]
+
     # put your own credentials here 
     account_sid = ENV["TWILIO_ACCOUNT_SID"]
     auth_token = ENV["TWILIO_AUTH_TOKEN"]
@@ -28,7 +31,7 @@ class TwilioController < ApplicationController
     @client.account.messages.create({
       :from => '+16172084459', 
       :to => '6177214362', 
-      :body => 'Your message is 90% positive!',  
+      :body => "#{content} from #{from_number}",  
     })
   end
 end
