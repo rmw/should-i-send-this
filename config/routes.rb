@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :comments, except: [:new, :create]
 
-  resources :users, only: [:index, :show]
+  resources :users, only: [:show]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
