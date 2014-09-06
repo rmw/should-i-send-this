@@ -1,10 +1,17 @@
 class DocumentsController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @documents = Document.all.order(created_at: :desc)
   end
 
   def create
-    document = Document.create(document_params)
+    user = current_user
+
+    document = Document.new(document_params)
+    document.user = user
+    document.save
+
     document.versions.create(version_params)
 
     redirect_to document_path(document)
