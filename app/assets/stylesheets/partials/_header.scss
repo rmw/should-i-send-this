@@ -1,6 +1,6 @@
 header {
-  height: 6em;
-  line-height: 6em;
+  height: 3em;
+  line-height: 3em;
   font-size: 1.5em;
   background-color: #f9f8f6;
   border-bottom: 1px solid #e5e5e5;
@@ -9,7 +9,7 @@ header {
   h1 {
     @include span-columns(4);
     float: left;
-    @include shift(1);
+    @include shift(2);
     a {
      color: black;
      text-decoration: none;
@@ -18,7 +18,7 @@ header {
   }
 
   nav {
-    @include shift(7.3);
+    @include shift(6);
     ul {
       li {
         display: inline-block;
