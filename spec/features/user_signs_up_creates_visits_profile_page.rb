@@ -9,22 +9,29 @@ feature "User Log In and Access To Personal Items" do
   #   User.make(:email => 'user@example.com', :password => 'caplin')
   # end
 
-  scenario "User navigates to new user form, inputs valid version info and saves" do
-    visit root_url
-    click_link 'Register'
+  # scenario "User navigates to new user form, inputs valid version info and saves" do
+  #   visit root_url
+  #   click_link 'Register'
 
-    expect(current_url).to eq "http://www.example.com/users/sign_up"
-    fill_in 'Name', :with => 'Test Name'
-    fill_in 'Email', :with => 'email@test.com'
-    fill_in 'Password', :with => 'test1234'
-    fill_in 'Password confirmation', :with => 'test1234'
+  #   expect(current_url).to eq "http://www.example.com/users/sign_up"
+  #   fill_in 'Name', :with => 'Test Name'
+  #   fill_in 'Email', :with => 'email@test.com'
+  #   fill_in 'Password', :with => 'test1234'
+  #   fill_in 'Password confirmation', :with => 'test1234'
 
-    click_button 'Sign up'
+  #   click_button 'Sign up'
 
-    expect(page).to have_content 'Welcome! You have signed up successfully.'
+  #   expect(page).to have_content 'Welcome! You have signed up successfully.'
 
-    click_link 'Register'
-    # expect(page).to have_content 'Context'
+  #   click_link 'New'
+
+  #   fill_in 'Title', :with => 'valid title'
+  #   fill_in 'Context', :with => 'valid context'
+  #   fill_in 'Content', :with => 'valid content'
+
+  #   click_button 'Create Document'
+
+  #   expect(page).to have_content 'valid title'
     # expect(page).to have_content 'Content'
 
     # expect(page).to have_content 'What Type of Feedback Are You Looking For?'
@@ -44,7 +51,7 @@ feature "User Log In and Access To Personal Items" do
 
     # expect(page).to have_content 'Positivity Results:'
 
-  end
+  # end
 
 
 end
