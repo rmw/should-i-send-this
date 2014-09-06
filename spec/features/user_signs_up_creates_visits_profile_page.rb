@@ -1,39 +1,38 @@
 require 'rails_helper'
 
 
-feature "User Log In and Access To Personal Items" do
+feature "User Log In Create Doc Versions and Navigate to Profile page" do
 
-  pending
 
-  # background do
-  #   User.make(:email => 'user@example.com', :password => 'caplin')
-  # end
 
-  # scenario "User navigates to new user form, inputs valid version info and saves" do
-  #   visit root_url
-  #   click_link 'Register'
+  scenario "User navigates to new user form, inputs valid version info and saves" do
+    visit root_url
+    click_link 'Register'
 
-  #   expect(current_url).to eq "http://www.example.com/users/sign_up"
-  #   fill_in 'Name', :with => 'Test Name'
-  #   fill_in 'Email', :with => 'email@test.com'
-  #   fill_in 'Password', :with => 'test1234'
-  #   fill_in 'Password confirmation', :with => 'test1234'
+    expect(current_url).to eq "http://www.example.com/users/sign_up"
+    fill_in 'Name', :with => 'Test Name'
+    fill_in 'Email', :with => 'email@test.com'
+    fill_in 'Password', :with => 'test1234'
+    fill_in 'Password confirmation', :with => 'test1234'
 
-  #   click_button 'Sign up'
+    click_button 'Sign up'
 
-  #   expect(page).to have_content 'Welcome! You have signed up successfully.'
+    expect(page).to have_content 'Welcome! You have signed up successfully.'
 
-  #   click_link 'New'
+    click_link 'New'
 
-  #   fill_in 'Title', :with => 'valid title'
-  #   fill_in 'Context', :with => 'valid context'
-  #   fill_in 'Content', :with => 'valid content'
+    fill_in 'Title', :with => 'valid title'
+    fill_in 'Context', :with => 'valid context'
+    fill_in 'Content', :with => 'valid content'
 
-  #   click_button 'Create Document'
+    click_button 'Create Document'
 
-  #   expect(page).to have_content 'valid title'
-    # expect(page).to have_content 'Content'
+    expect(page).to have_content 'Version #1'
+    expect(page).to have_content 'valid title'
+    expect(page).to have_content 'valid context'
+    expect(page).to have_content 'valid content'
 
+    click_link 'Test Name'
     # expect(page).to have_content 'What Type of Feedback Are You Looking For?'
 
     # fill_in 'Title', :with => 'valid title'
@@ -51,7 +50,7 @@ feature "User Log In and Access To Personal Items" do
 
     # expect(page).to have_content 'Positivity Results:'
 
-  # end
+  end
 
 
 end
