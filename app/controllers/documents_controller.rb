@@ -1,8 +1,8 @@
 class DocumentsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
-    @documents = Document.all.order(created_at: :desc)
+    @documents = Document.where(privacy: false).order(created_at: :desc)
   end
 
   def create
@@ -61,7 +61,8 @@ class DocumentsController < ApplicationController
   def document_params
     title = params[:document][:title]
     context = params[:document][:context]
-    {title: title, context: context}
+    privacy = ( params[:document][:privacy] == '1' )
+    {title: title, context: context, privacy: privacy }
   end
 
   def version_params
