@@ -54,5 +54,6 @@ gem 'faker'
 
 gem 'devise'
 
+gem 'twilio-ruby'
 
 
