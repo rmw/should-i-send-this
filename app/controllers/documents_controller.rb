@@ -1,12 +1,11 @@
 class DocumentsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   def index
-    @documents = Document.all.order(created_at: :desc)
+    @documents = Document.where(privacy: false).order(created_at: :desc)
   end
 
   def create
-    p params
     user = current_user
 
     document = Document.new(document_params)
