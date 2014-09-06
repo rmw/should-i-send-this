@@ -53,6 +53,10 @@ class DocumentsController < ApplicationController
   end
 
   def destroy
+    @document = Document.find(params[:id])
+    @document.destroy
+
+    redirect_to user_path(current_user)
   end
 
   private
