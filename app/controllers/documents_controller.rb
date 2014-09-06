@@ -1,5 +1,5 @@
 class DocumentsController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def index
     @documents = Document.where(privacy: false).order(created_at: :desc)
