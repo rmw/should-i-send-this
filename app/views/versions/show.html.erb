@@ -1,0 +1,54 @@
+<h1>Version #<%= @version.version_number %></h1>
+<br>
+
+<% if current_user == @document.user %>
+  <%= render partial: 'shared/new_version' %>
+<% end %>
+
+<br><br>
+
+Version History<br>
+<% @versions.each do |version| %>
+  <p><%= link_to "Verison ##{version.version_number}", version_path(version) %><p>
+<% end %>
+<br>
+
+<%= @document.title %><br>
+<br>
+
+<p id="content"><%= @version.content %></p>
+<br>
+
+<hr>
+<table class="compare-cons">
+  <tr>
+    <th>You Think You Wrote:</th>
+    <th>And</th>
+    <th>Alchemy Thinks You're Writing About:</th>
+  </tr>
+  <tr>
+    <td><%= @document.context %></td>
+    <td>  </td>
+    <td><%= @concepts.first %></td>
+  </tr>
+
+</table>
+<br>
+<%= link_to 'Comment On This Document', version_comment_path(@version) %>
+<h2>Add a comments:</h2>
+
+<br>
+
+<% @comments.each do |comment| %>
+  <p>
+    <small>by <%= comment.user.name %><br></small>
+    <%= comment.body %>
+  </p>
+  <br>
+<% end %>
+
+<div class="hidden">
+  <div id="rawkeywords"><%= @keywords %></div>
+  <div id="rawconcepts"><%= @concepts %></div>
+  <div id="rawsentiment"><%= @sentiment %></div>
+</div>
