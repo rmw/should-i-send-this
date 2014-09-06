@@ -2,7 +2,7 @@
 <br>
 
 
-<h1>Versions</h1>
+<h1>Version #<%= @current_version.version_number %></h1>
   <p id="content"><%= @current_version.content %></p>
 
 
@@ -20,14 +20,29 @@
   </tr>
 
 </table>
+<br>
+
+<h2>Add a comment:</h2>
+<%= form_for(@comment, url: document_version_comments_path(@document, @version), method: :post) do |f| %>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
 
 
+<% @comments.each do |comment| %>
+  <p>
+    by <%= comment.user.name %><br>
+    <%= comment.body %>
+  </p>
+  <br>
+<% end %>
 
 
-
-
-
-<!-- <h2>Response Text</h2> -->
 
 
 <div class="hidden">
