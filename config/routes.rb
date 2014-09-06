@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
+
+
   root :to => "public#index"
 
   get '/styleguide' => 'public#show'
