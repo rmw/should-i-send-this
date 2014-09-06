@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   resources :comments, except: [:new, :create]
 
 
-  get '/sms' => 'twilio#sms'
+  get '/sms' => 'twilio#receive'
+  post '/sms' => 'twilio#send'
 
 
   resources :users, only: [:show]
