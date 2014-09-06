@@ -21,11 +21,9 @@ class TwilioController < ApplicationController
     message_content = params[:Body]
     message_number = params[:From]
 
-
     # alchemist = AlchemyData.new(message_content)
     # sentiment = alchemist.sentiment
     sentiment = (0.575699*100).floor
-
 
     # put your own credentials here 
     account_sid = ENV["TWILIO_ACCOUNT_SID"]
