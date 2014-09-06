@@ -16,7 +16,11 @@ class TwilioController < ApplicationController
     render_twiml response
   end
 
-  def sms
+  def receive
+    @params = params
+  end
+
+  def send
     # put your own credentials here 
     account_sid = ENV["TWILIO_ACCOUNT_SID"]
     auth_token = ENV["TWILIO_AUTH_TOKEN"]
