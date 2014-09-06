@@ -31,9 +31,9 @@ class TwilioController < ApplicationController
     auth_token = ENV["TWILIO_AUTH_TOKEN"]
  
     # set up a client to talk to the Twilio REST API 
-    @client = Twilio::REST::Client.new(account_sid, auth_token)
+    client = Twilio::REST::Client.new(account_sid, auth_token)
  
-    @client.account.messages.create({
+    client.account.messages.create({
       :from => '+16172084459', 
       :to => message_number, 
       :body => "Your sentiment is #{sentiment}",  
