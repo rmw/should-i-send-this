@@ -11,9 +11,13 @@
 
   <%= render partial: 'shared/header' %>
 
-  <div class="devise_related">
+  <div class="devise">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <ul class="hmenu">
+      <%= render 'devise/menu/registration_items' %>
+      <%= render 'devise/menu/login_items' %>
+    </ul>
   </div>
 
 		<div class="main-content">
