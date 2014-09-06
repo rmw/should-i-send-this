@@ -7,7 +7,21 @@
 require 'gmail'
 require 'mail'
 
-gmail = Gmail.new("shouldisendthis@gmail.com", "4four@dbc")
+class FakeAlchemist
+  attr_reader :keywords, :concepts, :sentiment
+
+  def initialize
+    @keywords = ["hot dogs", "salty", "buns", "mention", "thoughts", "MIND", "buns."]
+    @concepts = ["2000 albums"]
+    @sentiment = -0.393271
+  end
+
+end
+
+username = 'shouldisendthis@gmail.com'
+password = '4four@dbc'
+
+gmail = Gmail.new(username, password)
 
 Mail.defaults do
   delivery_method :smtp, { :address              => "smtp.gmail.com",
@@ -19,24 +33,31 @@ Mail.defaults do
                            :enable_starttls_auto => true  }
 end
 
-count = 0
-
 gmail.inbox.emails(:unread).each do |msg|
-  count = count + 1
+  msg.mark(:read)
   if msg.subject == "[SIST]"
+    alchemist = FakeAlchemist.new
+
+    keywords = alchemist.keywords.join(",")
+    concepts = alchemist.concepts.join(",")
+    sentiment = alchemist.sentiment
+
     sender = msg.from[0]
-    alchemized_body = "#{msg.body}  has been alchemized...."
+    email_body = "#{msg.body}"
+
     mail = Mail.new do
       from     'shouldisendthis.@gmail.com'
       to       sender
-      subject  'Thanks for using Should I Send This?'
+      subject  '[SIST] Here are your results.'
 
       html_part do
         content_type 'text/html; charset=UTF-8'
-        body "<h1>Thank you!</h1><p>#{alchemized_body}</p>"
+        body "<p>#{email_body}</p>" +
+             "<p>Your keywords are #{keywords}.</p>" +
+             "<p>Your concept is #{concepts}.</p>" +
+             "<p>Your sentiment score is #{sentiment}.</p>"
       end
-      mail.deliver!
-      msg.mark(:read)
     end
   end
+  mail.deliver!
 end
