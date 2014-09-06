@@ -24,6 +24,7 @@ class TwilioController < ApplicationController
 
     # alchemist = AlchemyData.new(message_content)
     # sentiment = alchemist.sentiment
+    sentiment = (0.575699*100).floor
 
 
     # put your own credentials here 
@@ -36,7 +37,7 @@ class TwilioController < ApplicationController
     client.account.messages.create({
       :from => '+16172084459', 
       :to => message_number, 
-      :body => "Your sentiment is sentimental",  
+      :body => "Your sentiment is #{sentiment}% positive!",  
     })
   end
 end
