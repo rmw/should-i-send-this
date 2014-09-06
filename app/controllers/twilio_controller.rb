@@ -21,6 +21,11 @@ class TwilioController < ApplicationController
     message_content = params[:Body]
     message_number = params[:From]
 
+
+    alchemist = AlchemyData.new(@current_version.content)
+    sentiment = alchemist.sentiment
+
+
     # put your own credentials here 
     account_sid = ENV["TWILIO_ACCOUNT_SID"]
     auth_token = ENV["TWILIO_AUTH_TOKEN"]
@@ -31,7 +36,15 @@ class TwilioController < ApplicationController
     @client.account.messages.create({
       :from => '+16172084459', 
       :to => message_number, 
-      :body => "You said this: #{message_content}",  
+      :body => "You said this: #{message_content}, your sentiment is #{sentiment}",  
     })
   end
 end
+
+
+
+
+
+
+
+
