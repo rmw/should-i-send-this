@@ -7,6 +7,12 @@
 
 <br><br>
 
+Version History<br>
+<% @versions.each do |version| %>
+  <p><%= link_to "Verison ##{version.version_number}", version_path(version) %><p>
+<% end %>
+<br>
+
 <%= @document.title %><br>
 <br>
 

@@ -28,6 +28,8 @@ class DocumentsController < ApplicationController
   def show
     @document = Document.find(params[:id])
 
+    @versions = @document.versions
+
     @current_version = @document.versions.order(version_number: :desc).first
     @version = @current_version  # Restful use of version resource
 
