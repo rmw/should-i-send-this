@@ -2,8 +2,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
   
   def create
-    # TODO - User implemented for testing, need to remove after creating sessions_controller
-    user = User.all.sample
+    user = current_user
 
     version = Version.find(params[:version_id])
 

@@ -6,7 +6,12 @@ class DocumentsController < ApplicationController
   end
 
   def create
-    document = Document.create(document_params)
+    user = current_user
+
+    document = Document.new(document_params)
+    document.user = user
+    document.save
+
     document.versions.create(version_params)
 
     redirect_to document_path(document)
