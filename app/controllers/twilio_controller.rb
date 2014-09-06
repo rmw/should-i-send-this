@@ -35,7 +35,7 @@ class TwilioController < ApplicationController
  
     client.account.messages.create({
       :from => '+16172084459', 
-      :to => '6177214362', 
+      :to => message_number, 
       :body => "Your sentiment is sentimental",  
     })
   end
