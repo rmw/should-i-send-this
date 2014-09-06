@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   get '/versions/:id/comments/new' => 'comments#new', as: 'version_comment'
 
-  post '/versions/:id/comments' => 'comments#create'
+  post '/versions/:id/comments/new' => 'comments#create'
 
   resources :comments, except: [:new, :create]
 
