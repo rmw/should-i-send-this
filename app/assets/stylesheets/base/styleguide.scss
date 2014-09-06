@@ -57,3 +57,20 @@ body {
   //   }
   // }
 }
+
+input[type="text"] {
+  font-size: 0.8em;
+  border: 1px solid #9e9e9e;
+  border-radius: 0.25em;
+  width: 100%;
+  height: 2em;
+}
+
+textarea {
+  font-size: 0.8em;
+  border:1px solid #9e9e9e;
+  border-radius: 0.25em;
+  padding: 0.64em;
+  width: 100%;
+  height: 25em;
+}
