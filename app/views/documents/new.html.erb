@@ -13,5 +13,9 @@
   <% end %>
   <br>
 
-  <%= f.submit %>
+  <%= f.label :privacy, 'Check to make this message private:' %><br>
+  <%= f.check_box :privacy, :checked => false %>
+
+
+  <br><%= f.submit %>
 <% end %>
