@@ -1,6 +1,12 @@
 <h1>Version #<%= @current_version.version_number %></h1>
 <br>
 
+<% if current_user == @document.user %>
+  <%= render partial: 'shared/new_version' %>
+<% end %>
+
+<br><br>
+
 <%= @document.title %><br>
 <br>
 

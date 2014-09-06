@@ -8,6 +8,8 @@ class VersionsController < ApplicationController
   end
 
   def new
+    @document = Document.find(params[:document_id])
+    @version = Version.new
   end
 
   def edit
@@ -25,5 +27,7 @@ class VersionsController < ApplicationController
   private
 
   def version_params
+    content = params[:document][:versions][:content]
+    {content: content}
   end
 end

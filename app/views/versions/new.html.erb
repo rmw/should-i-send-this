@@ -1,0 +1,17 @@
+
+<%= @document.title %>
+<br>
+<%= @document.context %>
+
+<br><br>
+
+<%= form_for @document do |f| %>
+
+  <%= f.fields_for :versions do |v| %>
+    <%= v.label :content %><br>
+    <%= v.text_area :content %><br>
+  <% end %>
+  <br>
+
+  <%= f.submit %>
+<% end %>
