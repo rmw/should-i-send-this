@@ -7,6 +7,7 @@ class Version < ActiveRecord::Base
   after_validation :assign_version_number
 
   belongs_to :document
+  has_many :comments
 
 
   private
