@@ -15,12 +15,15 @@ feature "User Log In and Access To Personal Items" do
 
     expect(current_url).to eq "http://www.example.com/users/sign_up"
     fill_in 'Name', :with => 'Test Name'
-    fill_in 'Email', :with => 'email@test.test'
-    fill_in 'Password (8 characters minimum)', :with => 'testpassword'
-    fill_in 'Password confirmation', :with => 'testpassword'
+    fill_in 'Email', :with => 'email@test.com'
+    fill_in 'Password', :with => 'test1234'
+    fill_in 'Password confirmation', :with => 'test1234'
 
+    click_button 'Sign up'
 
-    expect(page).to have_content 'Title'
+    expect(page).to have_content 'Welcome! You have signed up successfully.'
+
+    click_link 'Register'
     # expect(page).to have_content 'Context'
     # expect(page).to have_content 'Content'
 
