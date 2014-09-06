@@ -18,8 +18,8 @@ class TwilioController < ApplicationController
 
 
   def sms
-    content = params[:body]
-    from_number = params[:from]
+    message_content = params[:Body]
+    message_number = params[:From]
 
     # put your own credentials here 
     account_sid = ENV["TWILIO_ACCOUNT_SID"]
@@ -30,8 +30,8 @@ class TwilioController < ApplicationController
  
     @client.account.messages.create({
       :from => '+16172084459', 
-      :to => '6177214362', 
-      :body => params,  
+      :to => message_number, 
+      :body => "You said this: #{message_content}",  
     })
   end
 end
