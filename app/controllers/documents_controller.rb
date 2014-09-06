@@ -19,11 +19,15 @@ class DocumentsController < ApplicationController
   end
 
   def show
-    # make API call
     @document = Document.find(params[:id])
-    @current_version = @document.versions.order(version_number: :desc).first
-    @alchemist = AlchemyData.new(@current_version.content)
 
+    @current_version = @document.versions.order(version_number: :desc).first
+    @version = @current_version  # Restful use of version resource
+
+    @comments = @version.comments.order(created_at: :desc)
+    @comment = @version.comments.build
+
+    @alchemist = AlchemyData.new(@current_version.content)
     # UNCOMMENT BELOW FOR NON-API CALL DEVELOPER MODE
     # @alchemist = FakeAlchemist.new
 

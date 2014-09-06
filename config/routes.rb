@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get '/styleguide' => 'public#show'
 
   resources :documents do
-    resources :versions, shallow: true
+    resources :versions, shallow: true do
+      resources :comments
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
