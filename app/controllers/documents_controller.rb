@@ -10,18 +10,17 @@ class DocumentsController < ApplicationController
     @document = Document.new(document_params)
     @version = Version.new(version_params)
 
-    if @document.save
-      current_user.documents << @document
-    else
-      render 'new'
+    unless @document.valid?
+      render 'new' and return
     end
 
-    if @document.versions << @version
+    if version_params_complete
+      current_user.documents << @document
+      @document.versions << @version
     # document.versions.build(version_params)
       redirect_to document_path(@document)
     else
-      # redirect_to edit_version_path(@version)
-      redirect_to root_url
+      render 'new'
     end
   end
 
