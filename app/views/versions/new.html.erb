@@ -25,7 +25,7 @@ Create New Version<br>
 
 <%= form_for @document do |f| %>
 
-  <%= f.fields_for :versions do |v| %>
+  <%= f.fields_for @version do |v| %>
     <%= v.label :content %><br>
     <%= v.text_area :content %><br>
   <% end %>

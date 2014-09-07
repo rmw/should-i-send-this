@@ -6,15 +6,22 @@ class DocumentsController < ApplicationController
   end
 
   def create
-    user = current_user
+    @document = Document.new(document_params)
+    @version = Version.new(version_params)
 
-    document = Document.new(document_params)
-    document.user = user
-    document.save
+    unless @document.valid?
+      flash[:notice] = 'Error'
+      render 'new' and return
+    end
 
-    document.versions.create(version_params)
-
-    redirect_to document_path(document)
+    if version_params_complete
+      current_user.documents << @document
+      @document.versions << @version
+      redirect_to document_path(@document)
+    else
+      flash[:notice] = 'Error'
+      render 'new'
+    end
   end
 
   def new
@@ -72,8 +79,16 @@ class DocumentsController < ApplicationController
   end
 
   def version_params
-    content = params[:document][:versions][:content]
+    content = params[:document][:version][:content]
     {content: content}
+  end
+
+  def doc_params_complete
+    (document_params[:title] != '') && (document_params[:context] != '') && (document_params[:privacy] != nil)
+  end
+
+  def version_params_complete
+    version_params[:content] != ''
   end
 
 end
