@@ -42,6 +42,7 @@ gem 'bourbon'
 gem 'neat'
 
 group :development, :test do
+  gem 'selenium-webdriver'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'shoulda-matchers'
