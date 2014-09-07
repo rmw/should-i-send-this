@@ -1,4 +1,4 @@
-<h1>Version #<%= @current_version.version_number %></h1>
+<h1>Version #<%= @version.version_number %></h1>
 <br>
 
 <% if current_user == @document.user %>
@@ -16,7 +16,7 @@ Version History<br>
 <%= @document.title %><br>
 <br>
 
-<p id="content"><%= @current_version.content %></p>
+<p id="content"><%= @version.content %></p>
 <br>
 
 <hr>
@@ -34,7 +34,7 @@ Version History<br>
 
 </table>
 <br>
-<%= link_to 'Comment On This Document', version_comment_path(@current_version) %>
+<%= link_to 'Comment On This Document', version_comment_path(@version) %>
 <h2>Add a comments:</h2>
 
 <br>
