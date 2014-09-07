@@ -6,19 +6,23 @@ class DocumentsController < ApplicationController
   end
 
   def create
+    # p params
     @document = Document.new(document_params)
+    @version = Version.new(version_params)
 
     if @document.save
-      current_user.documents << document
+      current_user.documents << @document
     else
-      @version = Version.new(version_params)
       render 'new'
     end
 
-
+    if @document.versions << @version
     # document.versions.build(version_params)
-
-    # redirect_to document_path(document)
+      redirect_to document_path(@document)
+    else
+      # redirect_to edit_version_path(@version)
+      redirect_to root_url
+    end
   end
 
   def new
@@ -76,7 +80,7 @@ class DocumentsController < ApplicationController
   end
 
   def version_params
-    content = params[:document][:versions][:content]
+    content = params[:document][:version][:content]
     {content: content}
   end
 
