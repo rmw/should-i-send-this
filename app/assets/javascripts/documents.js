@@ -49,6 +49,12 @@ $( document ).ready(function() {
 
   kwf.renderHighlighted();
 
+  $(".compare-cons").hide();
+
+  $("button").on("click", function() {
+    $(".compare-cons").show();
+  })
+
 });
 
 
