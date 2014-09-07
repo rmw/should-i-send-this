@@ -6,13 +6,13 @@
   </h3>
 
   <% if document.privacy == true %>
-    <%= form_for document, url: document_path(document), method: :patch do |f| %>
-      <%= f.hidden_field :privacy, :privacy => false %>
+    <%= form_for document do |f| %>
+      <%= f.hidden_field :privacy, :value => '0' %>
       <%= f.submit("make public") %>
     <% end %>
   <% else %>
-    <%= form_for document, url: document_path(document), method: :patch do |f| %>
-      <%= f.hidden_field :privacy, :privacy => true %>
+    <%= form_for document do |f| %>
+      <%= f.hidden_field :privacy, :value => '1' %>
       <%= f.submit("make private") %>
     <% end %>
   <% end %>
