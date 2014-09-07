@@ -6,7 +6,6 @@ class DocumentsController < ApplicationController
   end
 
   def create
-    # p params
     @document = Document.new(document_params)
     @version = Version.new(version_params)
 
@@ -17,7 +16,6 @@ class DocumentsController < ApplicationController
     if version_params_complete
       current_user.documents << @document
       @document.versions << @version
-    # document.versions.build(version_params)
       redirect_to document_path(@document)
     else
       render 'new'
