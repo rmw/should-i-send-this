@@ -7,10 +7,16 @@ class AlchemyData
     @keywords = []
     @concepts = []
     @sentiment = 0
+  end
+
+  def retrieve_from_api
     get_keywords
     get_concepts
     get_sentiment
   end
+
+
+  private
 
   def get_keywords
     response = @alchemyapi.keywords('text', @content, { 'sentiment'=>1 })
