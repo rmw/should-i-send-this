@@ -1,10 +1,10 @@
 require 'rails_helper'
 require_relative 'session_helpers'
 
-feature "User Logs In Create Doc Versions and Navigate to Profile page" do
+feature "User creates new document" do
   include Features::UserDocHelpers
 
-  scenario "User navigates to new user form, inputs valid version info and saves" do
+  scenario "navigates to new user form, inputs valid version info and saves" do
     new_user_sign_up
 
     user_creates_doc_and_initial_version
@@ -19,5 +19,17 @@ feature "User Logs In Create Doc Versions and Navigate to Profile page" do
 
     expect(page).to have_content 'valid title'
     expect(page).to have_content 'valid context'
+  end
+
+  scenario "navigates to new user form, inputs invalid, recieves error message" do
+    new_user_sign_up
+    click_link 'New'
+
+    fill_in 'Title', :with => 'valid title'
+    click_button 'Create Document'
+    expect(page).to have_content 'Error, improper submission'
+
+
+
   end
 end
