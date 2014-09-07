@@ -21,21 +21,13 @@ feature "new document versions" do
 
         click_link Document.last.title
         expect(page).to have_content 'Version #1'
-        # fill_in 'Title', :with => 'valid title'
-        # fill_in 'Context', :with => 'valid context'
-        # fill_in 'Content', :with => 'valid content'
+        click_link 'new version'
 
-        # click_button 'Create Document'
-
-        # expect(page).to have_content 'Version #1'
-
-        # expect(page).to have_content 'valid context'
-        # expect(page).to have_content 'valid content'
-
-        # click_link 'Test Name'
-        # expect(current_url).to eq "http://www.example.com/users/#{User.last.id}"
-
-        # expect(page).to have_content 'valid title'
-        # expect(page).to have_content 'valid context'
+        expect(page).to have_content Document.last.title
+        fill_in 'Content', :with => 'Updating version with new text.'
+        click_button 'Update Document'
+        expect(current_url).to eq "http://www.example.com/documents/#{Document.last.id}"
+        expect(page).to have_content 'Version #2'
+        expect(page).to have_content 'Updating version with new text.'
     end
 end
