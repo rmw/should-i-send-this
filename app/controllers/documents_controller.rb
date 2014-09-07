@@ -10,6 +10,7 @@ class DocumentsController < ApplicationController
     @version = Version.new(version_params)
 
     unless @document.valid?
+      flash[:notice] = 'Error'
       render 'new' and return
     end
 
@@ -18,6 +19,7 @@ class DocumentsController < ApplicationController
       @document.versions << @version
       redirect_to document_path(@document)
     else
+      flash[:notice] = 'Error'
       render 'new'
     end
   end
