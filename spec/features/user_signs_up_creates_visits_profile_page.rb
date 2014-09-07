@@ -1,29 +1,13 @@
 require 'rails_helper'
-
+require_relative 'session_helpers'
 
 feature "User Logs In Create Doc Versions and Navigate to Profile page" do
+  include Features::UserDocHelpers
 
   scenario "User navigates to new user form, inputs valid version info and saves" do
-    visit root_url
-    click_link 'Register'
+    new_user_sign_up
 
-    expect(current_url).to eq "http://www.example.com/users/sign_up"
-    fill_in 'Name', :with => 'Test Name'
-    fill_in 'Email', :with => 'email@test.com'
-    fill_in 'Password', :with => 'test1234'
-    fill_in 'Password confirmation', :with => 'test1234'
-
-    click_button 'Sign up'
-
-    expect(page).to have_content 'Welcome! You have signed up successfully.'
-
-    click_link 'New'
-
-    fill_in 'Title', :with => 'valid title'
-    fill_in 'Context', :with => 'valid context'
-    fill_in 'Content', :with => 'valid content'
-
-    click_button 'Create Document'
+    user_creates_doc_and_initial_version
 
     expect(page).to have_content 'Version #1'
     expect(page).to have_content 'valid title'

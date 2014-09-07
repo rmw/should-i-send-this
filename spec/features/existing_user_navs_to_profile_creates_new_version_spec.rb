@@ -1,25 +1,23 @@
 require 'rails_helper'
+require_relative 'session_helpers'
 
 feature "new document versions" do
 
-            # fill_in 'Name', :with => 'Test Name'
-        # fill_in 'Email', :with => 'email@test.com'
-        # fill_in 'Password', :with => 'test1234'
-        # fill_in 'Password confirmation', :with => 'test1234'
+    include Features::UserDocHelpers
 
-        # click_button 'Sign up'
+    ## BUG BUG -- logging in with devise in feature tests is failing. much googling, but new_user_signup in session_helpers module
 
+    before :each do
+        User.create(:email => 'test@example.com', :password => 'test1234', name: 'user')
 
-    scenario "User navigates to new user form, inputs valid version info and saves" do
-        visit root_url
-        click_link 'Login'
+    end
 
-        expect(current_url).to eq "http://www.example.com/users/sign_in"
+    scenario "Creates new Doc, adds a new version" do
+        new_user_sign_up
 
+        user_creates_doc_and_initial_version
 
-        # expect(page).to have_content 'Welcome! You have signed up successfully.'
-
-        # click_link 'New'
+        visit
 
         # fill_in 'Title', :with => 'valid title'
         # fill_in 'Context', :with => 'valid context'
