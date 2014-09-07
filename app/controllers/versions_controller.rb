@@ -10,6 +10,8 @@ class VersionsController < ApplicationController
   def new
     @document = Document.find(params[:document_id])
     @version = Version.new
+    @most_recent_version = @document.versions.last
+    @comments = @most_recent_version.comments
   end
 
   def edit
