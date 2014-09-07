@@ -25,9 +25,9 @@ feature "User creates new document" do
     new_user_sign_up
     click_link 'New'
 
-    fill_in 'Title', :with => 'valid title'
+    fill_in 'Context', :with => 'forgot title'
     click_button 'Create Document'
-    expect(page).to have_content 'Error, improper submission'
+    expect(page).to have_content 'Error'
 
 
 
