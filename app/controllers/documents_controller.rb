@@ -54,9 +54,14 @@ class DocumentsController < ApplicationController
 
   def update
     document = Document.find(params[:id])
-    document.versions.create(version_params)
 
-    redirect_to document_path(document)
+    if version_params
+      document.versions.create(version_params)
+      redirect_to document_path(document) and return
+    end
+
+    document.update(privacy: params[:document][:privacy] == '1' )
+    redirect_to user_path(current_user)
   end
 
   def destroy
