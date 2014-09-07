@@ -17,8 +17,10 @@ feature "new document versions" do
 
         user_creates_doc_and_initial_version
 
-        visit
+        visit user_path(User.last)
 
+        click_link Document.last.title
+        expect(page).to have_content 'Version #1'
         # fill_in 'Title', :with => 'valid title'
         # fill_in 'Context', :with => 'valid context'
         # fill_in 'Content', :with => 'valid content'
@@ -26,7 +28,7 @@ feature "new document versions" do
         # click_button 'Create Document'
 
         # expect(page).to have_content 'Version #1'
-        # expect(page).to have_content 'valid title'
+
         # expect(page).to have_content 'valid context'
         # expect(page).to have_content 'valid content'
 
