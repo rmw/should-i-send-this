@@ -20,17 +20,20 @@ Version History<br>
 <br>
 
 <hr>
-<table class="compare-cons">
-  <tr>
-    <th>You Think You Wrote:</th>
-    <th>And</th>
-    <th>Alchemy Thinks You're Writing About:</th>
-  </tr>
-  <tr>
-    <td><%= @document.context %></td>
-    <td>  </td>
-    <td><%= @concepts.first %></td>
-  </tr>
+<%= button_tag "Analysis", :id => "analysis" %><br>
+<br>
+
+<div class="compare-cons hidden">
+  <div class="compare-context">
+    <p>You Think You Wrote:</p>
+    <p><%= @document.context %></p>
+  </div>
+  <div class="compare-concept">
+    <p>Alchemy Thinks You're Writing About:</p>
+    <p><%= @concepts.first %></p>
+  </div>
+</div>
+<br>
 
 </table>
 <br>

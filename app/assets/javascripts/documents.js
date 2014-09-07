@@ -49,12 +49,11 @@ $( document ).ready(function() {
 
   kwf.renderHighlighted();
 
-  $(".compare-cons").hide();
-
   $("button").on("click", function() {
-    $(".compare-cons").show();
+    $(".compare-cons").removeClass('hidden');
   })
 
+  console.log('ready')
 });
 
 
