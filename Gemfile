@@ -59,3 +59,5 @@ gem 'ruby-gmail'
 gem 'mail'
 
 gem 'twilio-ruby'
+
+gem 'jquery-turbolinks'
