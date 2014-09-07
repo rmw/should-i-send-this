@@ -38,6 +38,19 @@ class VersionsController < ApplicationController
   end
 
   def destroy
+    version = Version.find(params[:id])
+
+    document = Document.find(version.document_id)
+
+    latest_version = document.versions.last
+
+    if version == latest_version
+      version.destroy
+      redirect_to document_path(document)
+    else
+      version.destroy
+      redirect_to version_path(latest_version)
+    end
   end
 
   private

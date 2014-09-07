@@ -9,7 +9,7 @@
 
 Version History<br>
 <% @versions.each do |version| %>
-  <p><%= link_to "Verison ##{version.version_number}", version_path(version) %><p>
+  <p><%= link_to "Verison ##{version.version_number}", version_path(version) %> <%= link_to '[delete version]', version, :method => :delete %><p>
 <% end %>
 <br>
 
