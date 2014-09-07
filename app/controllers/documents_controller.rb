@@ -56,7 +56,7 @@ class DocumentsController < ApplicationController
   def update
     document = Document.find(params[:id])
 
-    if version_params
+    if params[:document][:version]
       document.versions.create(version_params)
       redirect_to document_path(document) and return
     end
