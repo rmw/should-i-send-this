@@ -4,8 +4,23 @@ class EmailController < ApplicationController
 
   def create
     sender = EmailParser.sender(params)
-    content = EmailParser.content(params)
-    UserMailer.test_email(sender, content)
-    redirect_to root_url
+
+    content = "Hello and thank you for using Should I Send This?  Below you will find the content of your email."
+    content << "\n\n\n"
+    content << EmailParser.content(params)
+
+    # TODO - alchemy api not working properly
+
+    # alchemist = AlchemyData.new(content)
+
+    # if alchemist
+    #   sentiment = alchemist.sentiment
+    # else
+    #   sentiment = "Should I Send This? ...is down for maintenance. Try again later!"
+    # end
+
+    UserMailer.email(sender, content).deliver
   end
 end
+
+
