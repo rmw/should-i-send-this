@@ -38,16 +38,16 @@ KeywordFinder.prototype = {
 $( document ).ready(function() {
 
   // ON READY - GRAB KEYWORDS CONCEPTS SENTIMENT FROM VIEW
-  var kw = JSON.parse( $("#rawkeywords").text() );
-  var concepts = JSON.parse( $("#rawconcepts").text() );
-  var sentiment = JSON.parse( $("#rawsentiment").text() );
-  var content = $('#content').text();
+  // var kw = JSON.parse( $("#rawkeywords").text() );
+  // var concepts = JSON.parse( $("#rawconcepts").text() );
+  // var sentiment = JSON.parse( $("#rawsentiment").text() );
+  // var content = $('#content').text();
 
-  kwf = new KeywordFinder(content, kw);
+  // kwf = new KeywordFinder(content, kw);
 
-  kwf.wrapKeyWords();
+  // kwf.wrapKeyWords();
 
-  kwf.renderHighlighted();
+  // kwf.renderHighlighted();
 
   $("button").on("click", function() {
     $(".compare-cons").removeClass('hidden');
