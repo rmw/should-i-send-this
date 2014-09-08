@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   post '/sms' => 'twilio#sms'
 
-  post '/email_process' => 'email#new'
+  post '/email_process' => 'email#create'
 
   resources :users, only: [:show]
 

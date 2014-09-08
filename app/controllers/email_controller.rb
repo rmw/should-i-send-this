@@ -1,6 +1,8 @@
 class EmailController < ApplicationController
 
-  def new
-    UserMailer.test_email
+  def create
+    @params = params
+    UserMailer.test_email(@params).deliver
+    redirect_to root_url
   end
 end
