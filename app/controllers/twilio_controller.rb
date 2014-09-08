@@ -51,10 +51,6 @@ class TwilioController < ApplicationController
     keywords = alchemist.keywords.take(3)
     response_body = ''
 
-    response_body << "Your top concept is: #{alchemist.concepts.first}. "
-
-    response_body << "Your top 3 keywords are: " + keywords.join(", ") + ". "
-
     case alchemist.sentiment
     when -1..0
       response_body << "Are you intending to send a negative message? If so send away!"
