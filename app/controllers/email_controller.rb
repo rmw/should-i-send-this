@@ -9,7 +9,7 @@ class EmailController < ApplicationController
     # content = EmailParser.content(params)
     content = "Hello There!!!"
 
-    UserMailer.test_email(sender, content)
+    UserMailer.test_email(sender, content).deliver
     # redirect_to root_url
   end
 end
