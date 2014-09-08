@@ -24,7 +24,7 @@ class TwilioController < ApplicationController
     alchemist = AlchemyData.new(message_content)
 
     if alchemist
-      sentiment = (alchemist.sentiment*100).floor
+      sentiment = alchemist.sentiment
       response_body = "Your sentiment is #{sentiment}% positive!"
     else
       response_body = "Should I Send This is currently under maintenance."
