@@ -5,9 +5,11 @@ class EmailController < ApplicationController
   def create
     sender = EmailParser.sender(params)
 
-    content = "Hello and thank you for using Should I Send This???  Below you will find the content of your email."
+    content = "Hello and thank you for using Should I Send This?  Below you will find the content of your email."
     content << "\n\n\n"
     content << EmailParser.content(params)
+
+    # TODO - alchemy api not working properly
 
     # alchemist = AlchemyData.new(content)
 
