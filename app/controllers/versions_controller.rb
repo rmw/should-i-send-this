@@ -27,13 +27,13 @@ class VersionsController < ApplicationController
     @comments = @version.comments.order(created_at: :desc)
     @comment = @version.comments.build
 
-    # @alchemist = AlchemyData.new(@current_version.content)
+    @alchemist = AlchemyData.new(@current_version.content)
     # UNCOMMENT BELOW FOR NON-API CALL DEVELOPER MODE
-    @alchemist = FakeAlchemist.new
+    # @alchemist = FakeAlchemist.new
 
-    @keywords = @alchemist.keywords
-    @concepts = @alchemist.concepts
-    @sentiment = @alchemist.sentiment
+    # @keywords = @alchemist.keywords
+    # @concepts = @alchemist.concepts
+    # @sentiment = @alchemist.sentiment
   end
 
   def update
