@@ -1,0 +1,13 @@
+<%= @version.content %>
+<hr>
+<br>
+
+<%= form_for(@comment, url: version_comment_path(@version, @comment), method: :post) do |f| %>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %><br>

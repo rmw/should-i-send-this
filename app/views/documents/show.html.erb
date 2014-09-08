@@ -1,0 +1,62 @@
+<h1>Version #<%= @current_version.version_number %></h1>
+<br>
+
+<% if current_user == @document.user %>
+  <%= render partial: 'shared/new_version' %>
+<% end %>
+
+<br><br>
+
+Version History<br>
+<% @versions.each do |version| %>
+  <p>
+    <%= link_to "Verison ##{version.version_number}", version_path(version) %>
+    <% if current_user == @document.user %>
+      <%= link_to '[delete version]', version, :method => :delete %>
+    <% end %>
+  <p>
+<% end %>
+<br>
+
+<%= @document.title %><br>
+<br>
+
+<p id="content"><%= @current_version.content %></p>
+<br>
+
+<p><%= add_highlight_spans(@current_version, @alchemist) %></p>
+
+<hr>
+<%= button_tag "Analysis", :id => "analysis" %><br>
+<br>
+
+<div class="compare-cons hidden">
+  <div class="compare-context">
+    <p>You Think You Wrote:</p>
+    <p><%= @document.context %></p>
+  </div>
+  <div class="compare-concept">
+    <p>Alchemy Thinks You're Writing About:</p>
+    <p><%= @concepts.first %></p>
+  </div>
+</div>
+<br>
+
+<%= link_to 'Comment On This Document', version_comment_path(@current_version) %>
+<h2>Add a comments:</h2>
+
+<br>
+
+<% @comments.each do |comment| %>
+  <p>
+    <small>by <%= comment.user.name %><br></small>
+    <%= comment.body %>
+  </p>
+  <br>
+<% end %>
+
+<div class="hidden">
+  <div id="rawkeywords"><%= @keywords %></div>
+  <div id="rawconcepts"><%= @concepts %></div>
+  <div id="rawsentiment"><%= @sentiment %></div>
+</div>

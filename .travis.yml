@@ -1,0 +1,13 @@
+language: ruby
+rvm:
+  - 2.0.0
+env:
+  - DB=postgresql
+# script:
+#   - RAILS_ENV=test bundle exec rake --trace db:migrate test
+addons:
+  postgresql: "9.3"
+before_script:
+  - psql -c 'create database should_i_send_this_test;' -U postgres
+
+script: bundle exec rspec spec
