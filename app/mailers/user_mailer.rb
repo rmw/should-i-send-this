@@ -3,13 +3,16 @@ class UserMailer < ActionMailer::Base
   default from: 'notifications@avifoxitestthis.com'
 
   def email(sender, content)
-    alchemist = AlchemyData.new(content)
+    # alchemist = AlchemyData.new(content)
 
-    if alchemist
-      sentiment = alchemist.sentiment
-    else
-      sentiment = 20
-    end
+    # if alchemist
+    #   sentiment = alchemist.sentiment
+    # else
+    #   sentiment = "Should I Send This?... is down for maintenance. Try again later!"
+    # end
+
+    sentiment = "This should work!"
+
 
     # case alchemist.sentiment
     # when -1..0
