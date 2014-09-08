@@ -7,11 +7,15 @@
   <%= f.text_area :context %><br>
   <br>
 
-  <%= f.fields_for :versions do |v| %>
+  <%= f.fields_for @version do |v| %>
     <%= v.label :content %><br>
     <%= v.text_area :content %><br>
   <% end %>
   <br>
 
-  <%= f.submit %>
+  <%= f.label :privacy, 'Check to make this message private:' %><br>
+  <%= f.check_box :privacy, :checked => false %>
+
+
+  <br><%= f.submit %>
 <% end %>

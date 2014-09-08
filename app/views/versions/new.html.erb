@@ -2,16 +2,36 @@
 <%= @document.title %>
 <br>
 <%= @document.context %>
+<br>
+<br>
 
-<br><br>
+Most Recent Version<br>
+<br>
+<%= @most_recent_version.content %><br>
+<br>
+
+Comments<br>
+<br>
+<% @comments.each do |comment| %>
+  <p>
+    <small>by <%= comment.user.name %><br></small>
+    <%= comment.body %>
+  </p>
+  <br>
+<% end %>
+
+Create New Version<br>
+<br>
 
 <%= form_for @document do |f| %>
 
-  <%= f.fields_for :versions do |v| %>
+  <%= f.fields_for @version do |v| %>
     <%= v.label :content %><br>
     <%= v.text_area :content %><br>
   <% end %>
-  <br>
 
-  <%= f.submit %>
+  <%= f.label :privacy, 'Check to make this message private:' %><br>
+  <%= f.check_box :privacy, :checked => false %>
+
+  <br><%= f.submit %>
 <% end %>
