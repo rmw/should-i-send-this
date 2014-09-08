@@ -21,9 +21,14 @@ class TwilioController < ApplicationController
     message_content = params[:Body]
     message_number = params[:From]
 
-    # alchemist = AlchemyData.new(message_content)
-    # sentiment = alchemist.sentiment
-    sentiment = (0.575699*100).floor
+    alchemist = AlchemyData.new(message_content)
+
+    if alchemist
+      sentiment = alchemist.sentiment
+      response_body = "Your sentiment is #{sentiment}% positive!"
+    else
+      response_body = "Should I Send This is currently under maintenance."
+    end
 
     # put your own credentials here
     account_sid = ENV["TWILIO_ACCOUNT_SID"]
@@ -33,9 +38,9 @@ class TwilioController < ApplicationController
     client = Twilio::REST::Client.new(account_sid, auth_token)
 
     client.account.messages.create({
-      :from => '+16172084459',
-      :to => message_number,
-      :body => "Your sentiment is #{sentiment}% positive!",
+      :from => '+16172084459', 
+      :to => message_number, 
+      :body => response_body,  
     })
   end
 end
