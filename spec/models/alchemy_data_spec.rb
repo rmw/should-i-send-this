@@ -8,11 +8,11 @@ describe AlchemyData do
   end
 
   it "should have a method get concepts that adds concepts to concepts array" do
-    expect(alchemy_data.get_concepts).to_not equal(0)
+    expect(alchemy_data.keywords.size).to_not equal(0)
   end
 
   it "should have a method get sentiment that returns a float between -1 and 1" do
-    expect(alchemy_data.get_sentiment).to be_between(-1, 1)
+    expect(alchemy_data.sentiment).to be_between(-1, 1)
   end
 
 end
