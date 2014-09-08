@@ -24,11 +24,12 @@ class TwilioController < ApplicationController
     alchemist = AlchemyData.new(message_content)
 
     if alchemist
-      sentiment = alchemist.sentiment
-      response_body = "Your sentiment is #{sentiment}% positive!"
+      response_body = compile_response(alchemist)
     else
       response_body = "Should I Send This is currently under maintenance."
     end
+
+
 
     # put your own credentials here
     account_sid = ENV["TWILIO_ACCOUNT_SID"]
@@ -38,10 +39,30 @@ class TwilioController < ApplicationController
     client = Twilio::REST::Client.new(account_sid, auth_token)
 
     client.account.messages.create({
-      :from => '+16172084459', 
-      :to => message_number, 
-      :body => response_body,  
+      :from => '+16172084459',
+      :to => message_number,
+      :body => response_body,
     })
+  end
+
+  private
+
+  def compile_response(alchemist)
+    keywords = alchemist.keywords.take(3)
+    response_body = ''
+
+    response_body << "Your top concept is: #{alchemist.concepts.first}. "
+
+    response_body << "Your top 3 keywords are: " + keywords.join(", ") + ". "
+
+    case alchemist.sentiment
+    when -1..0
+      response_body << "Are you intending to send a negative message? If so send away! \uU+1F44E"
+    when 0..1
+      response_body << "Looks good to me. Send away! \uU+1F44C"
+    else
+      response_body << "Should I Send This is currently under maintenance."
+    end
   end
 end
 

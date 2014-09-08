@@ -48,7 +48,7 @@ end
 # alchemy_object.concepts
 #    => returns array of concepts in descending order of relevance
 # alchemy_object.sentiment
-#    => returns sentiment as a float between 0 and 1
+#    => returns sentiment as a float between -1 and 1
 
 
 
