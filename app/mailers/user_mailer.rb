@@ -3,13 +3,13 @@ class UserMailer < ActionMailer::Base
 
   default from: 'notifications@avifoxitestthis.com'
 
-  def test_email(sender, content)
+  def email(sender, content)
     # @alchemist = AlchemyData.new(content).retrieve_from_api
-    @content = content
+    # content = content
     # @url  = 'http://example.com/login'
     # @params = params
     mail(to: sender,
-         subject: 'redirecting from mail gun to ActionMailer via heroku',
+         subject: 'Your Analyses From... Should I Send This?',
          body: content)
   end
 end

@@ -5,8 +5,8 @@ module EmailParser
    params['sender']
   end
 
-  def self.raw_content
+  def self.content(params)
      # extract text
-    params["stripped-text"]
+    params['stripped-text']
   end
 end
