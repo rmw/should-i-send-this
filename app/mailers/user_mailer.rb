@@ -9,8 +9,5 @@ class UserMailer < ActionMailer::Base
     @url  = 'http://example.com/login'
     @params = params
     mail(to: sender, subject: 'redirecting from mail gun to ActionMailer via heroku')
-    p '##############'
-    p 'EMAIL WORKED ???'
-    p '##############'
   end
 end
