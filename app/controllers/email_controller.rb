@@ -5,16 +5,17 @@ class EmailController < ApplicationController
   def create
     sender = EmailParser.sender(params)
     content = EmailParser.content(params)
+    # content = "Whatever this is all about"
 
-    alchemist = AlchemyData.new(content)
+    # alchemist = AlchemyData.new(content)
 
-    if alchemist
-      sentiment = alchemist.sentiment
-    else
-      sentiment = "Should I Send This? ...is down for maintenance. Try again later!"
-    end
+    # if alchemist
+    #   sentiment = alchemist.sentiment
+    # else
+    #   sentiment = "Should I Send This? ...is down for maintenance. Try again later!"
+    # end
 
-    UserMailer.email(sender, sentiment).deliver
+    UserMailer.email(sender, content).deliver
   end
 end
 
