@@ -5,13 +5,8 @@ RSpec.describe Document, :type => :model do
 
   it { should validate_presence_of :title }
 
-  it "should have a context" do
-    expect(document.context).not_to be_nil
-  end
-
-  it "should be invalid if title is empty" do
-    invalid_document = Document.new(context: "Invalid Test")
-    expect(invalid_document).to be_invalid
+  it "has a context" do
+    expect(document).to respond_to(:context)
   end
 
 end

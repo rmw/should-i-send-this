@@ -5,15 +5,15 @@ RSpec.describe Version, :type => :model do
   let(:version){ document.versions.create(content: "Testing...") }
   let(:version_2){ document.versions.create(content: "Testing 2...") }
 
-  it "should have a document id" do
-    expect(version.document_id).to eq(document.id)
+  it "belongs to a document" do
+    expect(version).to respond_to(:document)
   end
 
-  it "should have content" do
-    expect(version.content).to eq("Testing...")
+  it "has content" do
+    expect(version).to respond_to(:content)
   end
 
-  it "should have a version number" do
+  it "has a version number" do
     expect(version.version_number).to eq(1)
   end
 
