@@ -7,6 +7,7 @@ class AlchemyData
     @keywords = []
     @concepts = []
     @sentiment = 0
+    self.retrieve_from_api
   end
 
   def retrieve_from_api
