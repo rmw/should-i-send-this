@@ -48,9 +48,9 @@ class DocumentsController < ApplicationController
     # UNCOMMENT BELOW FOR NON-API CALL DEVELOPER MODE
     # @alchemist = FakeAlchemist.new
 
-    # @keywords = @alchemist.keywords
-    # @concepts = @alchemist.concepts
-    # @sentiment = @alchemist.sentiment
+    @keywords = @alchemist.keywords
+    @concepts = @alchemist.concepts
+    @sentiment = @alchemist.sentiment
   end
 
   def update
