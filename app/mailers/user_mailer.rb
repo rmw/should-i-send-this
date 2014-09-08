@@ -1,14 +1,10 @@
 class UserMailer < ActionMailer::Base
-  # default from: "from@example.com"
 
   default from: 'notifications@avifoxitestthis.com'
 
-  def test_email(params)
-    @url  = 'http://example.com/login'
-    @params = params
-    mail(to: 'frosenox@gmail.com', subject: 'redirecting from mail gun to ActionMailer via heroku')
-    p '##############'
-    p 'EMAIL WORKED ???'
-    p '##############'
+  def email(sender, content)
+    mail(to: sender,
+         subject: 'Your Analyses From... Should I Send This?',
+         body: content)
   end
 end
