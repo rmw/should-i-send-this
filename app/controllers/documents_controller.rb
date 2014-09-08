@@ -43,10 +43,10 @@ class DocumentsController < ApplicationController
     @comments = @version.comments.order(created_at: :desc)
     @comment = @version.comments.build
 
-    # @alchemist = AlchemyData.new(@current_version.content).retrieve_from_api
-    #
+    @alchemist = AlchemyData.new(@current_version.content)
+
     # UNCOMMENT BELOW FOR NON-API CALL DEVELOPER MODE
-    @alchemist = FakeAlchemist.new
+    # @alchemist = FakeAlchemist.new
 
     @keywords = @alchemist.keywords
     @concepts = @alchemist.concepts
