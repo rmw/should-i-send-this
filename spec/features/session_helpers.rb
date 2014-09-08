@@ -13,13 +13,15 @@ module Features
     end
 
     def user_creates_doc_and_initial_version
-      click_link 'New'
+      # click_link 'New'
 
-      fill_in 'Title', :with => 'valid title'
-      fill_in 'Context', :with => 'valid context'
-      fill_in 'Content', :with => 'valid content'
+      # fill_in 'Title', :with => 'valid title'
+      # fill_in 'Context', :with => 'valid context'
+      # fill_in 'Content', :with => 'valid content'
 
-      click_button 'Create Document'
+      # click_button 'Create Document'
+
+      pending
     end
 
   end
