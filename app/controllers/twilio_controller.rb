@@ -57,9 +57,9 @@ class TwilioController < ApplicationController
 
     case alchemist.sentiment
     when -1..0
-      response_body << "Are you intending to send a negative message? If so send away! \uU+1F44E"
+      response_body << "Are you intending to send a negative message? If so send away!"
     when 0..1
-      response_body << "Looks good to me. Send away! \uU+1F44C"
+      response_body << "Looks good to me. Send away!"
     else
       response_body << "Should I Send This is currently under maintenance."
     end
